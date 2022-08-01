@@ -1,0 +1,116 @@
+import java.sql.*;
+import java.util.Scanner;
+
+public class CollableDemo
+{
+	static Connection con;
+	static ResultSet rs;
+	String id,name,salary;
+	static String query1 ="{call EMPprocedure()}"; 
+	static String query2 = "{call empinsert(?,?,?)}";
+	static String query3 = "{call empupdate(?,?)}";
+	static String query4 = "{call empdelete(?)}";
+	static String query5 = "{call empOUT(?)}";
+	static String query6 = "{call empINOUT(?,?)}";
+
+	public static void main(String agrs[]) throws Exception
+	{
+	Scanner sc = new Scanner(System.in);
+ 
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	con = DriverManager.getConnection("jdbc:mysql://localhost:3300/emp", "root", "7284559");
+
+	//select procedure
+	CallableStatement csst = con.prepareCall(query1);
+	System.out.println("Employee table");
+	csst.execute();
+	rs = csst.getResultSet();
+	System.out.println("ID\NAME\SALARY");
+	while (rs.next()) {
+	String id = rs.getInt(1);
+	String name = rs.getString(2);
+	String salary = rs.getInt(3);
+	System.out.println(id + "\t" + name + "\t" + salary);
+	}
+	System.out.println("\n");
+	
+	//insert procedure
+	csst = con.prepareCall(query2);
+	System.out.println("Enter Employee id");
+	id = sc.nextLine();
+	csst.setString(1,id);
+	System.out.println("Enter Employee name");
+	name = sc.nextLine();
+	csst.setString(2,name);
+	System.out.println("Enter Employee salary");
+	salary = sc.nextLine();
+	csst.setString(3,salary);
+	System.out.println("Employee table after inserting the query");
+	csst.execute();
+	rs = csst.getResultSet();
+	System.out.println("ID\NAME\SALARY");
+	while (rs.next()) {
+	id = rs.getString (1);
+	name = rs.getString(2);
+	salary = rs.getString(3);
+	System.out.println(id + "\t" + name + "\t" + salary);
+	}
+	System.out.println("\n");
+
+	//update procedure
+	csst = con.prepareCall(query3);
+	System.out.println("Enter Employee id");
+	id = sc.nextLine();
+	csst.setString(1,id);
+	System.out.println("Enter Employee salary");
+	salary = sc.nextLine();
+	csst.setString(2,salary);
+	System.out.println("Employee table after updating the query");
+	csst.execute();
+	rs = csst.getResultSet();
+	System.out.println("ID\NAME\SALARY");
+	while (rs.next()) {
+	id = rs.getString (1);
+	name = rs.getString(2);
+	salary = rs.getString(3);
+	System.out.println(id + "\t" + name + "\t" + salary);
+	}
+	System.out.println("\n");
+
+	//delete procedure
+	csst = con.prepareCall(query4);
+	System.out.println("Enter Employee id");
+	id = sc.nextLine();
+	csst.setString(1,id);
+	System.out.println("Employee table after deleting the query");
+	csst.execute();
+	rs = csst.getResultSet();
+	System.out.println("ID\NAME\SALARY");
+	while (rs.next()) {
+	id = rs.getString (1);
+	name = rs.getString(2);
+	salary = rs.getString(3);
+	System.out.println(id + "\t" + name + "\t" + salary);
+	}
+	System.out.println("\n");
+
+	//out procedure
+	csst = con.prepareCall(query5);
+	csst.registerOutParameter(1,Types.INTEGER);
+	System.out.println("Executing Out procedure");
+	csst.execute();
+	System.out.println("Total count of employess in company whos SALARY > 80000 :  " + csst.getString(1));
+	System.out.println("\n");
+
+	//INOUT procedure
+	csst = con.prepareCall(query6);
+	System.out.println("Enter Employee salary");
+	salary = sc.nextString();
+	csst.setString(1,salary);
+	csst.registerOutParameter(2,Types.INTEGER);
+	System.out.println("Executing INOUT procedure");
+	csst.execute();
+	System.out.println("Id of Employee "+csst.getString(2)+" whos salary is greater than:  " + salary);
+	System.out.println("\n");
+}
+}

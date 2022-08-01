@@ -1,0 +1,17 @@
+CREATE TABLE emp
+(
+  id VARCHAR(150) NOT NULL,
+  name VARCHAR(150) NOT NULL, 
+  salary VARCHAR(150) NOT NULL,  
+  PRIMARY KEY (id)    
+);
+
+create table Student
+(
+	roll_no INT,
+	name VARCHAR(10)
+);
+select * from student;
+insert into student values(11,'xyz');
+update student set name = 'minal' where roll_no=11;
+delete from student where roll_no=12;

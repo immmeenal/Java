@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class String_methods{
+
+public void static main(String args[]){
+
+System.out.println("Enter any string: ");
+Scanner sc = new Scanner(System.in);
+str = sc.nextLine();
+
+System.out.println("Using string methods: ");
+System.out.println("1. Original string: "+str);
+System.out.println("2. String length: "+str.length());
+System.out.println("3. String lowercase: "+str.toLowerCase());
+System.out.println("4. String uppercase: "+str.toUpperCase());
+System.out.println("5. String trim: "+str.trim());
+System.out.println("6. String substring: "+str.substring(2,4));
+System.out.println("7. String replace: "+str.replace('c','m'));
+System.out.println("2. String starting: "+str.Startswith());
+System.out.println("2. String ending: "+str.());
+
+
+
+}
+
+}

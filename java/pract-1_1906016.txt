@@ -1,0 +1,250 @@
+Name : Minal Shamrao Chhatre
+std : 3rd year (G3)
+BATCH : (A)
+enroll: 1906016
+JAVA PRACTICAL : 1
+==================================================================
+
+Practical 1:  
+==================================================================
+1.Write a program to print the Fibonacci series upto 50 using for loop
+
+code:
+
+public class Fibonacci {
+
+   
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int n1=0,n2=1,n3,i,count=11;
+        System.out.println(n1+" "+n2);//printing 0 and 1
+        for(i=2;i<count;i++)
+        {
+            n3=n1+n2;
+            System.out.println(" "+n3);
+            n1=n2;
+            n2=n3;
+        }
+                
+    }
+    
+}
+----------------------------------------------------------------------------------------
+output-
+Windows PowerShell
+Copyright (C) 2009 Microsoft Corporation. All rights reserved.
+
+PS C:\Users\KIRAN> cd D:\java
+PS D:\java> javac Fibonacci.java
+PS D:\java> java Fibonacci
+Error: Could not find or load main class Fibonacci
+PS D:\java> javac Fibonacci.java
+PS D:\java> java Fibonacci
+0 1
+ 1
+ 2
+ 3
+ 5
+ 8
+ 13
+ 21
+ 34
+ 55
+PS D:\java>
+=================================================================
+2.Write a program to print even series upto 20 using while loop
+
+CODE:
+
+public class WhileEven {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int i = 1;
+        System.out.println("Even Numbers : ");
+        while(i<=20)
+        {
+            if(i%2==0){
+               System.out.println(i+" "); 
+            }
+           i++;
+                    
+        }
+    }
+    
+}
+---------------------------------------------------------------------------------------
+output:
+
+PS D:\java> javac WhileEven.java
+PS D:\java> java WhileEven
+Even Numbers :
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+==================================================================
+3.Write a program to print the sum of hardcoded digit's in number using do while loop.
+ex(127=1+2+7=10)
+
+code:
+public class SumOfDigits {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int num = 256;
+        int rem = 0;
+        int sum = 0;
+        int x = num;
+         System.out.println(num + "=");
+        while(x>0){
+            rem = x % 10;
+            sum = sum + rem;
+            x = x / 10;
+            System.out.println(rem + "+");
+        }
+        System.out.println("=" + sum);
+    }
+    
+}
+----------------------------------------------------------------------------------------
+output:
+
+PS D:\java> javac SumOfDigits.java
+PS D:\java> java SumOfDigits
+256=
+6+
+5+
+2+
+=13
+PS D:\java>
+==================================================================
+4.Write a program to print whether the given number is prime or not using if-else
+
+code:
+
+public class Isprime{    
+ public static void main(String args[]){    
+  int i,m=0,flag=0;      
+  int n=3;//it is the number to be checked    
+  m=n/2;      
+  if(n==0||n==1){  
+   System.out.println(n+" is not prime number");      
+  }else{  
+   for(i=2;i<=m;i++){      
+    if(n%i==0){      
+     System.out.println(n+" is not prime number");      
+     flag=1;      
+     break;      
+    }      
+   }      
+   if(flag==0)  { System.out.println(n+" is prime number"); }  
+  }//end of else  
+}    
+}
+----------------------------------------------------------------------------------------
+output:
+
+PS D:\java> javac Isprime.java
+PS D:\java> java Isprime
+3 is prime number
+PS D:\java>
+==================================================================
+
+5.Write a program using break, continue and switch statement.
+
+code:
+import java.util.Scanner;
+public class Switchcase {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        System.out.println("press 1 for continue statement or press 2 for break statement");
+    
+        Scanner sc = new Scanner(System.in);
+        int user = sc.nextInt();
+        int num = user;
+        switch(num) {
+            case 1:
+                for (int i = 0; i < 10; i++) {
+
+            // If the number is 2
+
+            // skip and continue
+
+            if (i == 2)
+
+                continue;
+
+            System.out.print(i + " ");
+
+        }
+                break;
+            case 2:
+                
+                 // Initially loop is set to run from 0-9
+
+        for (int i = 0; i < 10; i++) {
+
+            // Terminate the loop when i is 5
+
+            if (i == 5)
+
+                break;
+
+            System.out.println("i: " + i);
+
+        }
+
+        System.out.println("Out of Loop");
+
+                break;
+            default :
+                System.out.println("Invalid Option");
+        }
+    }
+    
+}
+
+----------------------------------------------------------------------------------------
+output:
+
+PS D:\java> javac Switchcase.java
+PS D:\java> java Switchcase
+press 1 for continue statement or press 2 for break statement
+2
+i: 0
+i: 1
+i: 2
+i: 3
+i: 4
+Out of Loop
+PS D:\java> java Switchcase
+press 1 for continue statement or press 2 for break statement
+1
+0 1 3 4 5 6 7 8 9 PS D:\java> java Switchcase
+press 1 for continue statement or press 2 for break statement
+3
+Invalid Option
+PS D:\java>
+
+==================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+

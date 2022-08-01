@@ -1,0 +1,54 @@
+Exception is an even which disturbs the flow of the program . Exception Handling is mechanism
+which handle the run time error.
+ 
+USER-DEFINED EXCEPTION
+
+BUILD-IN EXCEPTION
+
+1.CHECKED-
+ClassNotFoundException
+InterruptedException
+IOException
+InstantiationException
+SQLEception
+FileNotFoundException
+
+2.UNCHECKED-
+ArithmeticException
+ClassCastException
+NullPointerException
+ArrayIndexOutBoundsException
+ArrayStoreException
+IllegalThreadStateException
+
+
+class Exception{
+
+public static void main(strings[] args){
+
+try {
+// code
+}
+
+catch(Exception e){
+//rest of program
+}
+}
+}
+
+
+Exception handling methods
+
+1.try - use to specify a block where we should place exception code.
+    a. nested try - try withn try
+
+2.catch - 1 try block can have multiple catch blocks 
+
+3.finally - used to execute the important code of the program
+
+4.throw - used to throw an exception.
+
+5.throws - used to declare exceptions
+
+
+

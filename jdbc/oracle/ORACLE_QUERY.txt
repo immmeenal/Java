@@ -1,0 +1,11 @@
+//oracle
+
+create or replace procedure "insert"
+(id IN VARCHAR2,  
+name IN VARCHAR2,
+salary IN VARCHAR2)  
+is  
+begin  
+insert into empll values(id,name,salary);  
+end;  
+/  
